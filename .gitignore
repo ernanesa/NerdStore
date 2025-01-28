@@ -485,3 +485,4 @@ $RECYCLE.BIN/
 
 .vscode
 .idea
+src/services/Identidade.API/appsettings.Development.json
