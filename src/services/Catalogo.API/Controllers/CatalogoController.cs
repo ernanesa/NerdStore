@@ -5,14 +5,9 @@ namespace Catalogo.API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class CatalogoController : ControllerBase
+    public class CatalogoController(IProdutoRepository produtoRepository) : ControllerBase
     {
-        private readonly IProdutoRepository _produtoRepository;
-
-        public CatalogoController(IProdutoRepository produtoRepository)
-        {
-            _produtoRepository = produtoRepository;
-        }
+        private readonly IProdutoRepository _produtoRepository = produtoRepository;
 
         [HttpGet("catalogo/produtos")]
         public async Task<IEnumerable<Produto>> Index()
