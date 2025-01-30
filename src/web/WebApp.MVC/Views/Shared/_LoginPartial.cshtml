@@ -1,0 +1,24 @@
+@using WebApp.MVC.Extensions
+@inject IUser AppUser
+
+<ul class="nav navbar-nav navbar-right">
+    @if (AppUser.EstaAutenticado())
+    {
+        <li class="nav-item">
+            <a class="nav-link text-dark" title="Manage" asp-controller="Manage" asp-action="Index">Olá
+                @AppUser.ObterUserEmail()</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-controller="Identidade" asp-action="Logout">Logout</a>
+        </li>
+    }
+    else
+    {
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-controller="Identidade" asp-action="Login">Login</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-controller="Identidade" asp-action="Registro">Registro</a>
+        </li>
+    }
+</ul>
